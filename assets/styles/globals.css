@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Poppins, Arial, Helvetica, sans-serif;
+	scroll-behavior: smooth;
+}
+body,
+html,
+#__next {
+	height: 100%;
+	font-size: 16px;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+/* Home page */
+#home #legend {
+	background-image: linear-gradient(
+			to top right,
+			rgba(177, 227, 254, 0.5) 40%,
+			rgba(142, 231, 251, 0.5)
+		),
+		radial-gradient(
+			circle at 0% 0%,
+			rgb(127, 238, 252) 100px 100px,
+			transparent 100px 40%,
+			rgb(0, 225, 255)
+		),
+		radial-gradient(
+			circle at 30% 70%,
+			rgb(49, 182, 199) 100px 100px,
+			transparent 100px 40%,
+			rgb(0, 225, 255)
+		),
+		radial-gradient(
+			circle at 80% 70%,
+			rgb(16, 120, 134) 30px 30px,
+			transparent 30px 40%,
+			rgb(0, 225, 255)
+		),
+		radial-gradient(
+			circle at 80% 30%,
+			rgb(16, 120, 134) 50px 50px,
+			transparent 50px 40%,
+			rgb(0, 225, 255)
+		),
+		url('/images/legend_bg_image.jpg');
+	background-size: cover;
+	background-position: center center;
+}
+
+#home #services {
+	background-image: linear-gradient(
+			rgba(0, 217, 255, 0.5),
+			rgba(0, 225, 255, 0.5)
+		),
+		radial-gradient(
+			circle at 0% 0%,
+			rgb(49, 245, 239) 30% 30%,
+			rgb(20, 134, 159) 30% 60%,
+			transparent 60%
+		),
+		radial-gradient(
+			circle at 100% 100%,
+			rgb(49, 245, 239) 30% 30%,
+			rgb(0, 54, 66) 30% 60%,
+			transparent 60%
+		);
+	background-attachment: fixed;
+}
