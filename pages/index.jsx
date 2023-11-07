@@ -127,7 +127,7 @@ export default function Home() {
 				<h1
 					style={{ fontFamily: 'Playfair Display' }}
 					className='text-6xl font-bold capitalize max-md:text-4xl flex justify-center flex-wrap gap-2'>
-					<Image
+					<img
 						src='/images/logo.png'
 						height={70}
 						width={70}
