@@ -182,7 +182,7 @@ app.prepare().then(function () {
 				case 1:
 					_a.sent();
 					(server = (0, express_1)()),
-						(PORT_1 = parseInt('3000' || process.env.PORT));
+						(PORT_1 = parseInt(process.env.PORT || '3000'));
 					server.use((0, cookie_parser_1)());
 					server.use(express_1.urlencoded({ extended: true }));
 					server.use(express_1.json());
