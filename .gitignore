@@ -1,11 +1,8 @@
 node_modules
 x-application-authorization-token.txt
 generate_placeholder_products.js
-components
-pages
 lib/*/**.ts
 tsconfig.json
 tsconfig.tsbuildinfo
 index.ts
 .env
-next-env.d.ts
