@@ -223,8 +223,7 @@ export default function Home() {
 						id='carousel-slider'
 						className='flex gap-4 overflow-hidden cursor-grab py-2 relative'>
 						<div className='carousel-item w-full max-w-[250px] aspect-video flex-shrink-0 p-2 rounded-md shadow-md hover:shadow-xl pointer-events-none'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='object-cover aspect-video block align-middle m-auto rounded-sm'
@@ -242,8 +241,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className='carousel-item w-full max-w-[250px] aspect-video flex-shrink-0 p-2 rounded-md shadow-md hover:shadow-xl pointer-events-none'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='object-cover aspect-video block align-middle m-auto rounded-sm'
@@ -261,8 +259,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className='carousel-item w-full max-w-[250px] aspect-video flex-shrink-0 p-2 rounded-md shadow-md hover:shadow-xl pointer-events-none'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='object-cover aspect-video block align-middle m-auto rounded-sm'
@@ -280,8 +277,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className='carousel-item w-full max-w-[250px] aspect-video flex-shrink-0 p-2 rounded-md shadow-md hover:shadow-xl pointer-events-none'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='object-cover aspect-video block align-middle m-auto rounded-sm'
@@ -299,8 +295,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className='carousel-item w-full max-w-[250px] aspect-video flex-shrink-0 p-2 rounded-md shadow-md hover:shadow-xl pointer-events-none'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='object-cover aspect-video block align-middle m-auto rounded-sm'
@@ -318,8 +313,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className='carousel-item w-full max-w-[250px] aspect-video flex-shrink-0 p-2 rounded-md shadow-md hover:shadow-xl pointer-events-none'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='object-cover aspect-video block align-middle m-auto rounded-sm'
@@ -364,8 +358,7 @@ export default function Home() {
 					</h2>
 					<div className='flex flex-wrap p-4 gap-x-6 gap-y-8 m-auto justify-center'>
 						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
@@ -382,8 +375,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
@@ -400,8 +392,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
@@ -418,8 +409,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
@@ -436,8 +426,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
@@ -453,8 +442,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
@@ -480,8 +468,7 @@ export default function Home() {
 					</h2>
 					<div className='flex flex-wrap p-4 gap-x-6 gap-y-8 m-auto justify-center'>
 						<div className='bg-white rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
@@ -497,8 +484,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className='bg-white rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
@@ -514,8 +500,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className='bg-white rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<Image
-								loader={imageLoader}
+							<img
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'

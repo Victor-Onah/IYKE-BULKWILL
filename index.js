@@ -58,7 +58,8 @@ const bcrypt = __importStar(require('bcrypt'));
 const mongoose_1 = __importDefault(require('mongoose'));
 // Configuration for reading env variables
 dotenv_1.default.config();
-let dev = process.env.NODE_ENV !== 'production';
+let dev =
+	process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test';
 let app = (0, next_1.default)({ dev });
 let handler = app.getRequestHandler();
 // Prepare the application

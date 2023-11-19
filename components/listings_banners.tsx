@@ -32,13 +32,12 @@ export default function ListingsBanners() {
 			id='banners'
 			className='flex overflow-hidden aspect-[3/1]'>
 			<div className='banner min-w-full h-full w-full flex items-center relative justify-center'>
-				<Image
+				<img
 					className='block align-middle object-cover'
 					src='/images/phones.jpg'
 					alt='Phones on display'
 					height={350}
 					width={1020}
-					loader={imageLoader}
 				/>
 				<h2
 					style={{
@@ -49,13 +48,12 @@ export default function ListingsBanners() {
 				</h2>
 			</div>
 			<div className='banner min-w-full h-full w-full flex items-center relative justify-center'>
-				<Image
+				<img
 					className='block align-middle object-cover'
 					src='/images/laptops.jpg'
 					alt='Phones on display'
 					height={350}
 					width={1020}
-					loader={imageLoader}
 				/>
 				<h2
 					style={{
@@ -66,13 +64,12 @@ export default function ListingsBanners() {
 				</h2>
 			</div>
 			<div className='banner min-w-full h-full w-full flex items-center relative justify-center'>
-				<Image
+				<img
 					className='block align-middle object-cover'
 					src='/images/commercial_solar_panels.jpg'
 					alt='Phones on display'
 					height={350}
 					width={1020}
-					loader={imageLoader}
 				/>
 				<h2
 					style={{
