@@ -13,5 +13,7 @@ export default function imageLoader({
 }: ImageLoaderProps): string {
 	return process.env.NODE_ENV === 'development'
 		? `http://localhost:3000${src}?w=${width}&q=${quality || 75}`
-		: `https://iyke-bulkwill.com${src}?w=${width}&q=${quality || 75}`;
+		: process.env.NODE_ENV === 'production'
+		? `https://iyke-bulkwill.com${src}?w=${width}&q=${quality || 75}`
+		: `https://iyke-bulkwill.onrender.com${src}?w=${width}&q=${quality || 75}`;
 }
