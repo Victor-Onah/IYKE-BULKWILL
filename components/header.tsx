@@ -1,3 +1,4 @@
+import React from 'react';
 import Logo from './logo';
 import { FaBars, FaX } from 'react-icons/fa6';
 import Link from 'next/link';
@@ -34,11 +35,11 @@ export default function Header() {
 					{isMenuOpen ? <FaX /> : <FaBars />}
 				</div>
 				<ul
-					className={`${
-						isMenuOpen ? 'max-md:translate-x-0' : 'max-md:translate-x-full'
-					} transition-transform flex max-md:flex-col gap-4 font-bold max-md:fixed max-md:w-full max-md:bg-white max-md:right-0 max-md:top-[56px] max-md:bottom-0 max-md:p-4`}>
+					className={`${isMenuOpen ? 'max-md:translate-x-0' : 'max-md:translate-x-full'
+						} transition-transform flex max-md:flex-col gap-4 font-bold max-md:fixed max-md:w-full max-md:bg-white max-md:right-0 max-md:top-[56px] max-md:bottom-0 max-md:p-4`}>
 					<li>
 						<Link
+							onClick={() => setTimeout(() => setIsMenuOpen(false), 500)}
 							className='px-4 py-2 rounded hover:bg-blue-500 hover:text-white active:scale-95 block hover:shadow-lg'
 							href='/'>
 							Home
@@ -46,22 +47,25 @@ export default function Header() {
 					</li>
 					<li>
 						<Link
+							onClick={() => setTimeout(() => setIsMenuOpen(false), 500)}
 							className='px-4 py-2 rounded hover:bg-blue-500 hover:text-white active:scale-95 block hover:shadow-lg'
-							href='/'>
+							href='/about'>
 							About Us
 						</Link>
 					</li>
 					<li>
 						<Link
+							onClick={() => setTimeout(() => setIsMenuOpen(false), 500)}
 							className='px-4 py-2 rounded hover:bg-blue-500 hover:text-white active:scale-95 block hover:shadow-lg'
-							href='/'>
+							href='/contact'>
 							Contact Us
 						</Link>
 					</li>
 					<li>
 						<Link
+							onClick={() => setTimeout(() => setIsMenuOpen(false), 500)}
 							className='px-4 py-2 rounded hover:bg-blue-500 hover:text-white active:scale-95 block hover:shadow-lg'
-							href='/'>
+							href='/listings'>
 							Listings
 						</Link>
 					</li>

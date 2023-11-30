@@ -13,7 +13,7 @@ export default function Footer() {
 				style={{
 					fontFamily: 'Playfair Display',
 				}}
-				className='text-lg font-bold mb-6'>
+				className='text-lg font-bold mb-6 text-center'>
 				Iyke-Bulkwill Int'l Ltd.&copy; {new Date().getFullYear()}
 			</h3>
 			<div className='mb-8'>
@@ -63,17 +63,17 @@ export default function Footer() {
 					Home
 				</Link>
 				<Link
-					href='/'
+					href='/about'
 					className='font-semibold'>
 					About Us
 				</Link>
 				<Link
-					href='/'
+					href='/contact'
 					className='font-semibold'>
 					Contact Us
 				</Link>
 				<Link
-					href='/'
+					href='/listings'
 					className='font-semibold'>
 					Listings
 				</Link>

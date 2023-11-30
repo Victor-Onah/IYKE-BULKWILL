@@ -5,19 +5,8 @@ import { FaCartPlus, FaSpinner } from 'react-icons/fa6';
 import Link from 'next/link';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/router';
-
-type product = {
-	_id: string;
-	name: string;
-	description: string;
-	imageUrl: string;
-	price: number;
-	quantity: number;
-	category: string;
-	inStock: boolean;
-	quantityPurchased: number;
-	dateUploaded: Date | number | string;
-};
+import CartIcon from '../../components/cart_icon';
+import { product } from '../../components/types';
 
 export const getStaticProps = (() => {
 	return {
@@ -34,9 +23,9 @@ export default function Search({
 	let { state, dispatch } = useContext(ShopContext);
 	let router = useRouter();
 	let { query } = router;
-	let [searchResults, setSearchResults] = useState([]) as never as [
+	let [searchResults, setSearchResults] = useState([]) as unknown as [
 		product[],
-		(arr: product[]) => void
+		(arr: product[]) => void | ((fn: (prev: product[]) => product[]) => void)
 	];
 	let [gettingSearchResults, setGettingSearchResults] = useState(true);
 	let [searchStatus, setSearchStatus] = useState('pending') as [
@@ -48,8 +37,8 @@ export default function Search({
 	 */
 	function addToCart({ currentTarget }) {
 		let { id } = currentTarget.dataset;
-		let product = state.products.find((p) => p._id === id);
-		dispatch({ type: 'add_to_cart', payload: product });
+		let product = searchResults.find((p) => p._id === id);
+		dispatch({ type: 'add_to_cart', payload: { ...product, quantity: 1 } });
 	}
 	useEffect(() => {
 		setGettingSearchResults(true);
@@ -72,55 +61,76 @@ export default function Search({
 			});
 	}, [query]);
 	return (
-		<div>
-			<div className='mb-6'></div>
-			<div
-				className={`${
-					searchStatus === 'successful' && 'grid'
-				} grid-cols-4 gap-y-2 gap-x-4 max-[750px]:grid-cols-3 max-[500px]:grid-cols-2 max-[250px]:grid-cols-1`}>
-				{gettingSearchResults ? (
-					<p className='font-semibold text-slate-300 text-center'>Loading...</p>
-				) : searchStatus === 'failed' ? (
-					<p className='font-semibold text-slate-300 text-center'>
-						Failed to load products
-					</p>
-				) : (
-					searchResults.map((product: product) => (
-						<div
-							key={product._id}
-							data-id={product._id}
-							className='hover:shadow-lg p-2 h-fit'>
-							<img
-								alt={product.name}
-								src={product.imageUrl}
-								height={150}
-								width={150}
-								loading='lazy'
-								className='block aspect-square align-center object-cover w-full'
-							/>
-							<small className='font-semibold'>{product.name}</small>
-							<p className='font-bold'>N{product.price}</p>
-							<div className='flex gap-1 flex-col'>
-								<button
-									onClick={addToCart}
-									data-id={product._id}
-									className='flex-grow flex items-center justify-center gap-1 text-sm px-2 py-1 rounded bg-blue-500 w-full text-white font-semibold active:scale-95'>
-									<FaCartPlus /> Add to cart
-								</button>
-								<Link
-									className='text-[12px] bg-slate-200 rounded px-2 py-1 text-center'
-									href={`/listings/${product._id}`}>
-									View product
-								</Link>
+		<>
+			<Head>
+				<title>Search - {query.q}</title>
+			</Head>
+			<div>
+				<div className='mb-6'></div>
+				<div
+					className={`${searchStatus === 'successful' && 'grid'
+						} grid-cols-4 gap-y-2 gap-x-4 max-[750px]:grid-cols-3 max-[500px]:grid-cols-2 max-[250px]:grid-cols-1`}>
+					{gettingSearchResults ? (
+						<p className='font-semibold text-slate-300 text-center'>Loading...</p>
+					) : searchStatus === 'failed' ? (
+						<p className='font-semibold text-slate-300 text-center'>
+							Failed to load products
+						</p>
+					) : (
+						state.currentCategory === 'all' ? searchResults.map((product: product) => (
+							<div
+								key={product._id}
+								data-id={product._id}
+								className='hover:shadow-lg p-2 h-fit'>
+								<img
+									alt={product.name}
+									src={product.imageUrl}
+									height={150}
+									width={150}
+									loading='lazy'
+									className='block aspect-square align-center object-cover w-full'
+								/>
+								<p className='font-semibold text-sm capitalize'>{product.name}</p>
+								<div className='flex gap-1 flex-col'>
+									<button
+										onClick={addToCart}
+										data-id={product._id}
+										className='flex-grow flex items-center justify-center gap-1 text-sm px-2 py-1 rounded bg-blue-500 w-full text-white font-semibold active:scale-95'>
+										<FaCartPlus /> Add to cart
+									</button>
+								</div>
 							</div>
-						</div>
-					))
+						)) : searchResults.filter((product) => product.category === state.currentCategory).map((product: product) => (
+							<div
+								key={product._id}
+								data-id={product._id}
+								className='hover:shadow-lg p-2 h-fit'>
+								<img
+									alt={product.name}
+									src={product.imageUrl}
+									height={150}
+									width={150}
+									loading='lazy'
+									className='block aspect-square align-center object-cover w-full'
+								/>
+								<p className='font-semibold text-sm'>{product.name}</p>
+								<div className='flex gap-1 flex-col'>
+									<button
+										onClick={addToCart}
+										data-id={product._id}
+										className='flex-grow flex items-center justify-center gap-1 text-sm px-2 py-1 rounded bg-blue-500 w-full text-white font-semibold active:scale-95'>
+										<FaCartPlus /> Add to cart
+									</button>
+								</div>
+							</div>
+						))
+					)}
+				</div>
+				{state.fetchingMoreProducts[2] || (
+					<FaSpinner className='m-auto text-zinc-600' />
 				)}
 			</div>
-			{state.fetchingMoreProducts[2] || (
-				<FaSpinner className='m-auto text-zinc-600' />
-			)}
-		</div>
+		</>
 	);
 }
 
@@ -135,7 +145,7 @@ Search.getLayout = (page: ReactNode) => {
 				/>
 				<meta
 					name='og:title'
-					content='IYKE_BULKWILL - Product Listings'
+					content='Search | Find exclusive offers and affordable pricing - Iyke Bulkwill'
 				/>
 				<meta
 					name='og:description'
@@ -151,7 +161,7 @@ Search.getLayout = (page: ReactNode) => {
 				/>
 				<meta
 					name='twitter:title'
-					content='Product Listings | IYKE-BULKWILL'
+					content='Search | Find exclusive offers and affordable pricing - Iyke Bulkwill'
 				/>
 				<meta
 					name='twitter:description'
@@ -162,7 +172,9 @@ Search.getLayout = (page: ReactNode) => {
 					content='https://iyke-bulkwill.com/images/og_image.png'
 				/>
 			</Head>
-			<ListingsLayout>{page}</ListingsLayout>
+			<ListingsLayout>{page}
+				<CartIcon />
+			</ListingsLayout>
 		</>
 	);
 };

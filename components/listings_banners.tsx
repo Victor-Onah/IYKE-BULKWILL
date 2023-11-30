@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import Image from 'next/image';
-import imageLoader from './lib/image_loader';
 
 export default function ListingsBanners() {
 	useEffect(() => {

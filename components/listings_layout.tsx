@@ -2,51 +2,8 @@ import React, { PropsWithChildren, createContext, useReducer } from 'react';
 import ListingsSideNav from './listings_side_nav';
 import ListingsBanners from './listings_banners';
 import SearchBar from './search_bar';
+import { action, actionType, cartItem, state } from './types';
 
-type state = {
-	fetchingProducts: boolean;
-	productFetchStatus: 'failed' | 'success' | 'pending';
-	products: any[];
-	fetchingAutoComplete: boolean;
-	autoCompleteFetchStatus: 'failed' | 'success' | 'pending';
-	autoComplete: any[];
-	fetchingSearchResults: boolean;
-	searchResultsStatus: 'failed' | 'success' | 'pending';
-	searchResults: any[];
-	fetchingMoreProducts: [
-		'solar panels' | 'cctvs' | 'phones' | 'laptops' | 'security lights' | 'all',
-		'failed' | 'success' | 'pending',
-		boolean
-	];
-	moreProducts: any[];
-	currentCategory:
-		| 'solar panels'
-		| 'cctvs'
-		| 'phones'
-		| 'laptops'
-		| 'security lights'
-		| 'all';
-	priceRange: [number, number];
-	cart: any[];
-};
-
-type action = {
-	type: actionType;
-	payload?: any;
-};
-type actionType =
-	| 'set_products'
-	| 'set_product_fetch_status'
-	| 'set_autocomplete'
-	| 'set_autocomplete_fetch_status'
-	| 'set_search_results'
-	| 'set_search_results_fetch_status'
-	| 'set_more_products'
-	| 'set_current_category'
-	| 'set_price_range'
-	| 'add_to_cart'
-	| 'clear_cart'
-	| 'update_cart';
 let initState: state = {
 	fetchingProducts: true,
 	productFetchStatus: 'pending',
@@ -64,7 +21,6 @@ let initState: state = {
 	],
 	moreProducts: [],
 	currentCategory: 'all',
-	priceRange: [40000, 60000],
 	cart: [],
 };
 function reducer(state: state, action: action): state {
@@ -78,8 +34,6 @@ function reducer(state: state, action: action): state {
 			};
 		case 'set_current_category':
 			return { ...state, currentCategory: action.payload };
-		case 'set_price_range':
-			return { ...state, priceRange: action.payload };
 		case 'set_autocomplete_fetch_status':
 			return { ...state, autoCompleteFetchStatus: action.payload };
 		case 'set_more_products':
@@ -131,14 +85,51 @@ function reducer(state: state, action: action): state {
 		case 'set_search_results_fetch_status':
 			return { ...state, searchResultsStatus: action.payload };
 		case 'add_to_cart':
-			return { ...state, cart: [...state.cart, action.payload] };
+			let { payload } = action as unknown as { payload: cartItem, action: actionType }
+			let productIndex = state.cart.findIndex(product => product._id === payload._id)
+			if (productIndex === -1) return { ...state, cart: [...state.cart, payload] }
+			state.cart[productIndex].quantity++
+			let newCart = [...state.cart]
+			return { ...state, cart: newCart };
+		case 'add_to_cart_bulk':
+			return { ...state, cart: [...action.payload] };
+		case 'clear_cart':
+			localStorage.setItem('cart', JSON.stringify([]))
+			return { ...state, cart: [] }
+		case 'remove_from_cart':
+			let _newCart = state.cart.filter((product) => product._id != action.payload)
+			localStorage.setItem('cart', JSON.stringify(_newCart))
+			return { ...state, cart: _newCart }
+		case 'decrease_quantity_by_1':
+			let _productIndex = state.cart.findIndex(product => product._id == action.payload)
+			state.cart[_productIndex].quantity > 1 ? state.cart[_productIndex].quantity-- : 1
+			localStorage.setItem('cart', JSON.stringify(state.cart))
+			return { ...state }
+		case 'increase_quantity_by_1':
+			let __newCart = [...state.cart]
+			let __productIndex = __newCart.findIndex(product => product._id == action.payload)
+			state.cart[__productIndex].quantity++
+			localStorage.setItem('cart', JSON.stringify(__newCart))
+			return { ...state, cart: __newCart }
+		case 'set_product_quantity':
+			let _productIdx = state.cart.findIndex(product => product._id === action.payload.id)
+			if (_productIdx > -1) {
+				if (Number.isNaN(action.payload.quantity) || action.payload.quantity == 0) {
+					state.cart[_productIdx].quantity = 1
+					localStorage.setItem('cart', JSON.stringify(state.cart))
+					return { ...state }
+				}
+				state.cart[_productIdx].quantity = action.payload.quantity
+				localStorage.setItem('cart', JSON.stringify(state.cart))
+				return { ...state }
+			}
 		default:
 			return state;
 	}
 }
 let ShopContext = createContext({
 	state: initState,
-	dispatch: (action: action) => {},
+	dispatch: (action: action) => { },
 }) as React.Context<{ state: state; dispatch: React.Dispatch<action> }>;
 
 export default function ListingsLayout({ children }: PropsWithChildren) {

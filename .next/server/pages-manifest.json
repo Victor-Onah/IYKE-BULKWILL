@@ -1,1 +1,1 @@
-{"/_app":"pages/_app.js","/_error":"pages/_error.js","/_document":"pages/_document.js","/":"pages/index.html","/listings/search":"pages/listings/search.js","/listings":"pages/listings.js","/404":"pages/404.html"}
+{"/about":"pages/about.html","/listings/cart":"pages/listings/cart.js","/_document":"pages/_document.js","/contact":"pages/contact.js","/_error":"pages/_error.js","/_app":"pages/_app.js","/listings":"pages/listings.js","/":"pages/index.js","/listings/search":"pages/listings/search.js","/404":"pages/404.html"}

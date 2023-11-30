@@ -9,7 +9,7 @@ export default function Document() {
 			<Head>
 				<meta
 					name='description'
-					content='We are dealers on Solar Panels and CCTV, Installations, Phones and Laptops, Real Estate Solution Providers and General Merchants'
+					content='Dealers on Solar Panels and CCTV, Installations, Phones and Laptops, Real Estate Solution Providers and General Merchants'
 				/>
 				<meta
 					name='og:title'
@@ -17,7 +17,7 @@ export default function Document() {
 				/>
 				<meta
 					name='og:description'
-					content='We are dealers on Solar Panels and CCTV, Installations, Phones and Laptops, Real Estate Solution Providers and General Merchants'
+					content='Dealers on Solar Panels and CCTV, Installations, Phones and Laptops, Real Estate Solution Providers and General Merchants'
 				/>
 				<meta
 					name='og:image'
@@ -33,7 +33,7 @@ export default function Document() {
 				/>
 				<meta
 					name='twitter:description'
-					content='We are dealers on Solar Panels and CCTV, Installations, Phones and Laptops, Real Estate Solution Providers and General Merchants'
+					content='Dealers on Solar Panels and CCTV, Installations, Phones and Laptops, Real Estate Solution Providers and General Merchants'
 				/>
 				<meta
 					name='twitter:image'

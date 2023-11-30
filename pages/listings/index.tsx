@@ -1,23 +1,13 @@
-import React, { PropsWithoutRef, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Head from 'next/head';
 import ListingsLayout from '../../components/listings_layout';
 import { ShopContext } from '../../components/listings_layout';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { FaCartPlus, FaSpinner } from 'react-icons/fa6';
 import Link from 'next/link';
+import CartIcon from '../../components/cart_icon';
+import { product } from '../../components/types';
 
-type product = {
-	_id: string;
-	name: string;
-	description: string;
-	imageUrl: string;
-	price: number;
-	quantity: number;
-	category: string;
-	inStock: boolean;
-	quantityPurchased: number;
-	dateUploaded: Date | number | string;
-};
 export const getStaticProps = (() => {
 	return {
 		props: {
@@ -36,16 +26,17 @@ export default function Listings({
 	function addToCart({ currentTarget }) {
 		let { id } = currentTarget.dataset;
 		let product = state.products.find((p) => p._id === id);
-		dispatch({ type: 'add_to_cart', payload: product });
+		dispatch({ type: 'add_to_cart', payload: { ...product, quantity: 1 } });
 	}
+
 	useEffect(() => {
-		let page = 1;
+		let page = 1
 		/**
 		 * Gets the initial products for the shop
 		 */
 		async function getInitialProducts(): Promise<void> {
 			try {
-				let response = await fetch('/api/listings?page=1', {
+				let response = await fetch(`/api/listings?page=1&category=${state.currentCategory}`, {
 					headers: {
 						'X-Application-Authorization-Token': appAuthToken,
 					},
@@ -57,17 +48,6 @@ export default function Listings({
 					dispatch({ type: 'set_product_fetch_status', payload: 'failed' });
 					return;
 				}
-				type product = {
-					name: string;
-					description: string;
-					imageUrl: string;
-					price: number;
-					quantity: number;
-					category: string;
-					inStock: boolean;
-					quantityPurchased: number;
-					dateUploaded: Date | number | string;
-				};
 				let data: product[] = await response.json();
 				dispatch({ type: 'set_products', payload: [...data] });
 			} catch (error) {
@@ -75,26 +55,28 @@ export default function Listings({
 				dispatch({ type: 'set_product_fetch_status', payload: 'failed' });
 			}
 		}
+
 		/**
-		 * Get more produucts listing
+		 * Get more products listing
 		 */
-		async function getMoreProducts(): Promise<void> {
+		async function getMoreProducts(category: typeof state.currentCategory): Promise<void> {
 			if (
 				state.fetchingMoreProducts[2] ||
 				state.fetchingMoreProducts[1] === 'failed' ||
 				state.fetchingMoreProducts[1] === 'success'
 			) {
 				try {
+					page++
 					dispatch({
 						type: 'set_more_products',
 						payload: {
-							category: state.currentCategory,
+							category: category,
 							status: 'pending',
 							finished: false,
 						},
 					});
 					let response = await fetch(
-						`/api/listings?page=${page++}&category=${state.currentCategory}`,
+						`/api/listings?page=${page}&category=${category}`,
 						{
 							headers: {
 								'X-Application-Authorization-Token': appAuthToken,
@@ -105,7 +87,7 @@ export default function Listings({
 						dispatch({
 							type: 'set_more_products',
 							payload: {
-								category: state.currentCategory,
+								category: category,
 								status: 'failed',
 								finished: true,
 							},
@@ -115,7 +97,7 @@ export default function Listings({
 						dispatch({
 							type: 'set_more_products',
 							payload: {
-								category: state.currentCategory,
+								category: category,
 								status: 'failed',
 								finished: true,
 							},
@@ -127,24 +109,23 @@ export default function Listings({
 					dispatch({
 						type: 'set_more_products',
 						payload: {
-							category: state.currentCategory,
+							category: category,
 							status: 'success',
 							data: [...data],
 							finished: true,
 						},
 					});
 				} catch (error) {
-					console.log(error);
+					console.error(error);
 					dispatch({ type: 'set_product_fetch_status', payload: 'failed' });
 				}
 			}
 		}
+
 		function scroll(): void {
 			let documentLength = document.documentElement.scrollHeight;
-
 			if (documentLength - (window.scrollY + this.window.innerHeight) <= 300) {
-				console.log('True');
-				getMoreProducts();
+				getMoreProducts(state.currentCategory);
 				return void 0;
 			}
 		}
@@ -153,15 +134,17 @@ export default function Listings({
 
 		return () => {
 			window.removeEventListener('scroll', scroll);
+			dispatch({ type: 'set_products', payload: [] })
+			page = 1
 		};
-	}, []);
+	}, [state.currentCategory])
+
 	return (
 		<div>
 			<div className='mb-6'></div>
 			<div
-				className={`${
-					state.productFetchStatus === 'success' && 'grid'
-				} grid-cols-4 gap-y-2 gap-x-4 max-[750px]:grid-cols-3 max-[500px]:grid-cols-2 max-[250px]:grid-cols-1`}>
+				className={`${state.productFetchStatus === 'success' && 'grid'
+					} grid-cols-4 gap-y-2 gap-x-4 max-[750px]:grid-cols-3 max-[500px]:grid-cols-2 max-[250px]:grid-cols-1`}>
 				{state.fetchingProducts ? (
 					<p className='font-semibold text-slate-300 text-center'>Loading...</p>
 				) : state.productFetchStatus === 'failed' ? (
@@ -182,11 +165,7 @@ export default function Listings({
 								loading='lazy'
 								className='block aspect-square align-center object-cover w-full'
 							/>
-							<small className='font-semibold'>{product.name}</small>
-							<p className='font-bold'>
-								<sub>₦</sub>
-								{product.price}
-							</p>
+							<p className='font-semibold text-sm capitalize'>{product.name}</p>
 							<div className='flex gap-1 flex-col'>
 								<button
 									onClick={addToCart}
@@ -194,11 +173,6 @@ export default function Listings({
 									className='flex-grow flex items-center justify-center gap-1 text-sm px-2 py-1 rounded bg-blue-500 w-full text-white font-semibold active:scale-95'>
 									<FaCartPlus /> Add to cart
 								</button>
-								<Link
-									className='text-[12px] bg-slate-200 rounded px-2 py-1 text-center'
-									href={`/listings/${product._id}`}>
-									View product
-								</Link>
 							</div>
 						</div>
 					))
@@ -215,7 +189,10 @@ Listings.getLayout = function (page: React.ReactNode) {
 	return (
 		<>
 			<Head>
-				<title>Product Listings | IYKE-BULKWILL</title>
+				<title>
+					Exclusive Offers and Affordable Prices | Products Listings - Iyke
+					Bulkwill
+				</title>
 				<meta
 					name='description'
 					content='Check out our listings to see our exclusive offers'
@@ -249,7 +226,10 @@ Listings.getLayout = function (page: React.ReactNode) {
 					content='https://iyke-bulkwill.com/images/og_image.png'
 				/>
 			</Head>
-			<ListingsLayout>{page}</ListingsLayout>
+			<ListingsLayout>
+				{page}
+				<CartIcon />
+			</ListingsLayout>
 		</>
 	);
 };

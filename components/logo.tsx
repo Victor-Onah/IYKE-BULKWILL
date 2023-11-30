@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import { ComponentProps } from 'react';
+import React from 'react';
 
 export default function Logo({ classes }: { classes?: string }) {
 	return (
