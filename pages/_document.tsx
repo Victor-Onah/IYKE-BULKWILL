@@ -21,7 +21,7 @@ export default function Document() {
 				/>
 				<meta
 					name='og:image'
-					content='https://iyke-bulkwill.onrender.com/images/og_image.png'
+					content='https://iyke-bulkwill.onrender.com/images/og_image.jpg'
 				/>
 				<meta
 					name='twitter:card'
@@ -37,7 +37,7 @@ export default function Document() {
 				/>
 				<meta
 					name='twitter:image'
-					content='https://iyke-bulkwill.onrender.com/images/og_image.png'
+					content='https://iyke-bulkwill.onrender.com/images/og_image.jpg'
 				/>
 				<link
 					rel='stylesheet'
