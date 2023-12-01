@@ -67,10 +67,7 @@ export type product = {
 	name: string;
 	description: string;
 	imageUrl: string;
-	price: number;
-	quantity: number;
 	category: string;
-	inStock: boolean;
 	quantityPurchased: number;
 	dateUploaded: Date | number | string;
 };

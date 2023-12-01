@@ -20,7 +20,7 @@ html,
 }
 
 /* Home page */
-#home #legend {
+#legend {
 	background-image: linear-gradient(
 			to top right,
 			rgba(177, 227, 254, 0.5) 40%,

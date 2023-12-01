@@ -1,7 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import React, { FormEventHandler } from 'react'
-import { FaPhone, FaWhatsapp, FaFacebook } from 'react-icons/fa6'
+import { FaPhone, FaWhatsapp, FaFacebook, FaEnvelope } from 'react-icons/fa6'
 
 export const getStaticProps = function () {
 	return {
@@ -66,7 +66,7 @@ export default function Contact({ appAuthToken }: InferGetStaticPropsType<typeof
 				Contact Us | Iyke-Bulkwilll
 			</title>
 		</Head>
-		<main id='home'>
+		<main id='contact'>
 			{/* Legend */}
 			<div
 				className=' flex pt-[90px] pb-[50px] px-4 flex-col justify-center gap-4 text-center text-blue-900'
@@ -112,9 +112,10 @@ export default function Contact({ appAuthToken }: InferGetStaticPropsType<typeof
 				<div className='flex p-4 gap-x-6 gap-y-8 m-auto max-[720px]:flex-col items-center max-w-6xl'>
 					<div>
 						<h3 className="font-semibold text-gray-600 text-lg text-center mb-3">Social Media</h3>
-						<div className="flex max-[300px]:flex-wrap gap-2 justify-center items-center">
+						<div className="flex max-[450px]:flex-wrap gap-2 justify-center items-center p-4">
 							<a href="https://wa.me/2348038022220" className='text-green-200 bg-green-950 px-4 py-2 rounded-full flex gap-1 justify-center items-center'><FaWhatsapp /> WhatsApp</a>
-							<a href="https://wa.me/2348038022220" className='text-blue-200 bg-blue-950 px-4 py-2 rounded-full flex gap-1 justify-center items-center'><FaFacebook /> FaceBook</a>
+							<a href="https://www.facebook.com/profile.php?id=100048470815037&ibextid=LQQJ4d" className='text-blue-200 bg-blue-950 px-4 py-2 rounded-full flex gap-1 justify-center items-center'><FaFacebook /> FaceBook</a>
+							<a href="mailto:iykebulkwillintlltd@gmail.com" className='text-red-200 bg-red-950 px-4 py-2 rounded-full flex gap-1 justify-center items-center'><FaEnvelope /> Email</a>
 						</div>
 					</div>
 					<h3 className="font-semibold text-gray-600 text-2xl">OR</h3>

@@ -11,7 +11,7 @@ export default function Home() {
 					Agent, Sales of Phones and Laptops, General Merchants
 				</title>
 			</Head>
-			<main id='home'>
+			<main id='about'>
 				{/* Legend */}
 				<div
 					className=' flex pt-[90px] pb-[50px] px-4 flex-col justify-center gap-4 text-center text-blue-900'
@@ -26,6 +26,7 @@ export default function Home() {
 						/>{' '}
 						Iyke-Bulkwill Intl. Ltd.
 					</h1>
+					<img className='w-full max-w-xs aspect-square rounded-full block my-2 mx-auto shadow-xl hover:scale-105' src="/images/iyke-bulkwill.jpg" alt="CEO Iyke Bulkwill" />
 					<div>
 						<p className='flex justify-center'>
 							Solar and CCTV | Installations | Real Estate Agent | Sales of

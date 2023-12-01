@@ -33,6 +33,7 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const app_1 = __importDefault(require("./lib/modules/app"));
 const bcrypt = __importStar(require("bcrypt"));
 const mongoose_1 = __importDefault(require("mongoose"));
+const node_fetch_1 = __importDefault(require("node-fetch"));
 // Configuration for reading env variables
 dotenv_1.default.config();
 let dev = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test';
@@ -49,6 +50,24 @@ app.prepare().then(async () => {
         server.use(express_1.default.urlencoded({ extended: true }));
         server.use(express_1.default.json());
         server.use(express_1.default.static('./assets/public'));
+        /**
+         * Ping url
+         */
+        server.get('/api/ping', async (req, res, next) => {
+            res.end();
+            process.env.NODE_ENV === 'production'
+                ? (0, node_fetch_1.default)('http://iyke-bulkwill.com/webhook')
+                : (0, node_fetch_1.default)('http://localhost:3000/api/webhook');
+        });
+        /**
+         * Webhook url
+         */
+        server.get('/api/webhook', async (req, res, next) => {
+            res.end();
+            process.env.NODE_ENV === 'production'
+                ? (0, node_fetch_1.default)('http://iyke-bulkwill.com/ping')
+                : (0, node_fetch_1.default)('http://localhost:3000/api/ping');
+        });
         /**
          * Authorize the application to prevent hijacks
          */

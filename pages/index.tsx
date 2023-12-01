@@ -247,7 +247,7 @@ export default function Home({
 
 				{/* Carousel */}
 				<div className='p-4 relative max-w-6xl m-auto'>
-					<h2 className='text-lg text-slate-600 font-bold'>
+					<h2 className='text-lg text-slate-600 font-bold my-8'>
 						Take a sneak peek at some of our exclusive offers
 					</h2>
 					<div
@@ -271,17 +271,17 @@ export default function Home({
 						})}
 					</div>
 					<span
-						className='absolute w-8 h-8 rounded-full bg-[#ffffffaa] active:bg-white shadow-2xl top-1/2 -translate-x-1/2 flex justify-center items-center right-4'
+						className='absolute w-16 h-16 rounded-full bg-white active:scale-95 shadow-2xl top-1/2 -translate-y-1/2 flex justify-center items-center right-4'
 						id='right'>
 						<FaAngleRight />
 					</span>
 					<span
-						className='absolute w-8 h-8 rounded-full bg-[#ffffffaa] active:bg-white shadow-2xl top-1/2 -translate-x-1/2 flex justify-center items-center left-4'
+						className='absolute w-16 h-16 rounded-full bg-white active:scale-95 shadow-2xl top-1/2 -translate-y-1/2 flex justify-center items-center left-4'
 						id='left'>
 						<FaAngleLeft />
 					</span>
 					<Link
-						className='w-fit ml-auto mr-0 text-right text-blue-500 flex justify-end items-center font-semibold'
+						className='w-fit ml-auto mt-4 mr-0 text-right text-blue-500 flex justify-end items-center font-semibold'
 						href='/listings'>
 						View more <FaAngleRight />
 					</Link>
@@ -305,28 +305,13 @@ export default function Home({
 								alt=''
 							/>
 							<div>
-								<h3 className='font-semibold'>Residual Solar Panels</h3>
+								<h3 className='font-semibold'>Solar Panels</h3>
 								<p>
 									We specialize in customizing solar solutions for homes,
 									providing cost effective and eco-friendly energy options for
-									families.
-								</p>
-							</div>
-						</div>
-						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<img
-								height={400}
-								width={400}
-								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
-								src='/images/commercial_solar_panels.jpg'
-								alt=''
-							/>
-							<div>
-								<h3 className='font-semibold'>Commercial Solar Panels</h3>
-								<p>
-									Businesses can benefit from solar power too! Discover how we
+									families. Businesses can also benefit from solar power too! <Link className='text-blue-500' href='/listings'>Discover</Link> how we
 									can help you reduce operational costs and enhance
-									sustainability.
+									sustainability through our commercial solar panels.
 								</p>
 							</div>
 						</div>
@@ -360,7 +345,7 @@ export default function Home({
 								<p>
 									We can help you find your dream house. Our real estate agents
 									are experts in providing real estate solutions for our
-									customers
+									customers. You can <Link className='text-blue-500' href='/contact'>contact us</Link> directly for further enquiry
 								</p>
 							</div>
 						</div>
@@ -391,8 +376,23 @@ export default function Home({
 							<div>
 								<h3 className='font-semibold'>Quality Laptops</h3>
 								<p>
-									Check out our listings to find quality laptops that suite your
+									Check out our <Link className='text-blue-500' href='/listings'>listings page</Link> to find quality laptops that suite your
 									work requirements at affordable rates.
+								</p>
+							</div>
+						</div>
+						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
+							<img
+								height={400}
+								width={400}
+								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
+								src='/images/commercial_solar_panels.jpg'
+								alt=''
+							/>
+							<div>
+								<h3 className='font-semibold'>Home Lights</h3>
+								<p>
+									We offer top-notch lighting for home interior decorations. You can visit our <Link className='text-blue-500' href='/listings'>listings page</Link> to see the ones that suit your taste.
 								</p>
 							</div>
 						</div>
