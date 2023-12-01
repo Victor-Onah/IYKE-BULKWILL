@@ -77,28 +77,7 @@ app.prepare().then(async () => {
 		server.use(express_1.default.urlencoded({ extended: true }));
 		server.use(express_1.default.json());
 		server.use(express_1.default.static('./assets/public'));
-		/**
-		 * Ping url
-		 */
-		server.get('/api/ping', async (req, res, next) => {
-			res.end();
-			setTimeout(() => {
-				process.env.NODE_ENV === 'production'
-					? (0, node_fetch_1.default)('http://iyke-bulkwill.com/webhook')
-					: (0, node_fetch_1.default)('http://localhost:3000/api/webhook');
-			}, 60000 * 2);
-		});
-		/**
-		 * Webhook url
-		 */
-		server.get('/api/webhook', async (req, res, next) => {
-			res.end();
-			setTimeout(() => {
-				process.env.NODE_ENV === 'production'
-					? (0, node_fetch_1.default)('http://iyke-bulkwill.com/ping')
-					: (0, node_fetch_1.default)('http://localhost:3000/api/ping');
-			}, 60000 * 2);
-		});
+
 		/**
 		 * Authorize the application to prevent hijacks
 		 */
