@@ -386,7 +386,7 @@ export default function Home({
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
-								src='/images/commercial_solar_panels.jpg'
+								src='https://www-konga-com-res.cloudinary.com/w_850,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/T/Z/200674_1664086461.jpg'
 								alt=''
 							/>
 							<div>
