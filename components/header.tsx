@@ -40,7 +40,7 @@ export default function Header() {
 					<li>
 						<Link
 							onClick={() => setTimeout(() => setIsMenuOpen(false), 500)}
-							className='px-4 py-2 rounded hover:bg-blue-500 hover:text-white active:scale-95 block hover:shadow-lg'
+							className='px-4 py-2 rounded hover:bg-blue-700 hover:text-white active:scale-95 block hover:shadow-lg'
 							href='/'>
 							Home
 						</Link>
@@ -48,7 +48,7 @@ export default function Header() {
 					<li>
 						<Link
 							onClick={() => setTimeout(() => setIsMenuOpen(false), 500)}
-							className='px-4 py-2 rounded hover:bg-blue-500 hover:text-white active:scale-95 block hover:shadow-lg'
+							className='px-4 py-2 rounded hover:bg-blue-700 hover:text-white active:scale-95 block hover:shadow-lg'
 							href='/about'>
 							About Us
 						</Link>
@@ -56,7 +56,7 @@ export default function Header() {
 					<li>
 						<Link
 							onClick={() => setTimeout(() => setIsMenuOpen(false), 500)}
-							className='px-4 py-2 rounded hover:bg-blue-500 hover:text-white active:scale-95 block hover:shadow-lg'
+							className='px-4 py-2 rounded hover:bg-blue-700 hover:text-white active:scale-95 block hover:shadow-lg'
 							href='/contact'>
 							Contact Us
 						</Link>
@@ -64,7 +64,7 @@ export default function Header() {
 					<li>
 						<Link
 							onClick={() => setTimeout(() => setIsMenuOpen(false), 500)}
-							className='px-4 py-2 rounded hover:bg-blue-500 hover:text-white active:scale-95 block hover:shadow-lg'
+							className='px-4 py-2 rounded hover:bg-blue-700 hover:text-white active:scale-95 block hover:shadow-lg'
 							href='/listings'>
 							Listings
 						</Link>

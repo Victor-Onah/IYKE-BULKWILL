@@ -95,7 +95,7 @@ export default function Search({
 									<button
 										onClick={addToCart}
 										data-id={product._id}
-										className='flex-grow flex items-center justify-center gap-1 text-sm px-2 py-1 rounded bg-blue-500 w-full text-white font-semibold active:scale-95'>
+										className='flex-grow flex items-center justify-center gap-1 text-sm px-2 py-1 rounded bg-blue-700 w-full text-white font-semibold active:scale-95'>
 										<FaCartPlus /> Add to cart
 									</button>
 								</div>
@@ -118,7 +118,7 @@ export default function Search({
 									<button
 										onClick={addToCart}
 										data-id={product._id}
-										className='flex-grow flex items-center justify-center gap-1 text-sm px-2 py-1 rounded bg-blue-500 w-full text-white font-semibold active:scale-95'>
+										className='flex-grow flex items-center justify-center gap-1 text-sm px-2 py-1 rounded bg-blue-700 w-full text-white font-semibold active:scale-95'>
 										<FaCartPlus /> Add to cart
 									</button>
 								</div>
@@ -138,39 +138,8 @@ Search.getLayout = (page: ReactNode) => {
 	return (
 		<>
 			<Head>
-				<title>Product Listings | IYKE-BULKWILL</title>
-				<meta
-					name='description'
-					content='Check out our listings to see our exclusive offers'
-				/>
-				<meta
-					name='og:title'
-					content='Search | Find exclusive offers and affordable pricing - Iyke Bulkwill'
-				/>
-				<meta
-					name='og:description'
-					content='Check out our listings to see our exclusive offers'
-				/>
-				<meta
-					name='og:image'
-					content='https://iyke-bulkwill.com/images/og_image.png'
-				/>
-				<meta
-					name='twitter:card'
-					content='summary_large_image'
-				/>
-				<meta
-					name='twitter:title'
-					content='Search | Find exclusive offers and affordable pricing - Iyke Bulkwill'
-				/>
-				<meta
-					name='twitter:description'
-					content='Check out our listings to see our exclusive offers'
-				/>
-				<meta
-					name='twitter:image'
-					content='https://iyke-bulkwill.com/images/og_image.png'
-				/>
+				<title>Search</title>
+				<meta name='robots' content='noindex, nofollow' />
 			</Head>
 			<ListingsLayout>{page}
 				<CartIcon />

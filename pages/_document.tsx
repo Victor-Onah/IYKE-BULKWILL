@@ -9,15 +9,15 @@ export default function Document() {
 			<Head>
 				<meta
 					name='description'
-					content='Dealers on Solar Panels and CCTV, Installations, Phones and Laptops, Real Estate Solution Providers and General Merchants'
+					content='Explore our range of solar panels, phones, laptops, real estate, security lights, and home lighting solutions. Embrace eco-friendly technology for a brighter future.'
 				/>
 				<meta
 					name='og:title'
-					content='IYKE-BULKWILL'
+					content="Welcome to Iyke BulkWill Int'l Ltd. - Your Source for Sustainable Living."
 				/>
 				<meta
 					name='og:description'
-					content='Dealers on Solar Panels and CCTV, Installations, Phones and Laptops, Real Estate Solution Providers and General Merchants'
+					content='Explore our range of solar panels, phones, laptops, real estate, security lights, and home lighting solutions. Embrace eco-friendly technology for a brighter future.'
 				/>
 				<meta
 					name='og:image'
@@ -29,16 +29,17 @@ export default function Document() {
 				/>
 				<meta
 					name='twitter:title'
-					content='IYKE-BULKWILL'
+					content='Welcome to Iyke BulkWill - Your Source for Sustainable Living'
 				/>
 				<meta
 					name='twitter:description'
-					content='Dealers on Solar Panels and CCTV, Installations, Phones and Laptops, Real Estate Solution Providers and General Merchants'
+					content='Explore our range of solar panels, phones, laptops, real estate, security lights, and home lighting solutions. Embrace eco-friendly technology for a brighter future.'
 				/>
 				<meta
 					name='twitter:image'
 					content='https://iyke-bulkwill.onrender.com/images/og_image.jpg'
 				/>
+				<meta name='robots' content='index, follow' />
 				<link
 					rel='stylesheet'
 					href='/styles/fonts.css'
@@ -53,7 +54,6 @@ export default function Document() {
 					href='/images/logo.png'
 					type='image/png'
 				/>
-				<script src='/scripts/tailwindcss.js'></script>
 			</Head>
 			<body>
 				<Main />

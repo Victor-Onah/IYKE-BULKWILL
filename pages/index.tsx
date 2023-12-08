@@ -186,7 +186,7 @@ export default function Home({
 			carousel.removeEventListener('mouseup', clearEvents);
 			carousel.removeEventListener('mousedown', grabCarousel);
 			carousel.removeEventListener('touchstart', touchGrabCarousel);
-			carousel.removeEventListener('touchend', clearTouchEvents);
+			carousel.removeEventListener('touchend', clearTouchEvents,);
 			carousel.removeEventListener('mouseenter', pauseAutoPlay);
 			carousel.removeEventListener('mouseleave', resumeAutoPlay);
 			nextBtn.removeEventListener('click', showNextSlide);
@@ -198,9 +198,10 @@ export default function Home({
 		<>
 			<Head>
 				<title>
-					Iyke Bulkwill - Dealer on Solar and CCTV, Installations, Real Estate
-					Agent, Sales of Phones and Laptops, General Merchants
+					Welcome to Iyke BulkWill Int'l Ltd. - Your Source for Sustainable Living.
 				</title>
+				<link rel="canonical" href="https://iyke-bulkwill.onrender.com/" />
+				<link rel="canonical" href="https://www.iyke-bulkwill.com/" />
 			</Head>
 			<main id='home'>
 				{/* Legend */}
@@ -210,7 +211,8 @@ export default function Home({
 					<h1
 						style={{ fontFamily: 'Playfair Display' }}
 						className='text-6xl font-bold capitalize max-md:text-4xl flex justify-center flex-wrap gap-2'>
-						<img
+						<Image
+							alt='Logo'
 							src='/images/logo.png'
 							height={70}
 							width={70}
@@ -218,7 +220,7 @@ export default function Home({
 						Iyke-Bulkwill Intl. Ltd.
 					</h1>
 					<div>
-						<h3 className='text-lg font-semibold'>We Deal On</h3>
+						<h2 className='text-lg font-semibold'>We Deal On</h2>
 						<p className='flex justify-center'>
 							Solar and CCTV | Installations | Real Estate Agent | Sales of
 							Phones and Laptops | General Merchants
@@ -238,7 +240,7 @@ export default function Home({
 						</p>
 					</div>
 					<Link
-						className='block w-fit mx-auto px-4 py-2 rounded hover:shadow-lg active:scale-95 text-white bg-blue-500'
+						className='block w-fit mx-auto px-4 py-2 rounded hover:shadow-lg active:scale-95 text-white bg-blue-700'
 						href='/listings'>
 						Check out our listings
 					</Link>
@@ -247,9 +249,9 @@ export default function Home({
 
 				{/* Carousel */}
 				<div className='p-4 relative max-w-6xl m-auto'>
-					<h2 className='text-lg text-slate-600 font-bold my-8'>
+					<h3 className='text-lg text-slate-600 font-bold my-8'>
 						Take a sneak peek at some of our exclusive offers
-					</h2>
+					</h3>
 					<div
 						id='carousel-slider'
 						className='flex gap-4 overflow-hidden cursor-grab py-2 relative'>
@@ -258,7 +260,7 @@ export default function Home({
 								<div
 									key={product._id}
 									className='carousel-item w-full max-w-[250px] aspect-video flex-shrink-0 p-2 rounded-md shadow-md hover:shadow-xl pointer-events-none'>
-									<img
+									<Image
 										height={400}
 										width={400}
 										className='object-cover aspect-video block align-middle m-auto rounded-sm'
@@ -281,7 +283,7 @@ export default function Home({
 						<FaAngleLeft />
 					</span>
 					<Link
-						className='w-fit ml-auto mt-4 mr-0 text-right text-blue-500 flex justify-end items-center font-semibold'
+						className='w-fit ml-auto mt-4 mr-0 text-right text-blue-700 flex justify-end items-center font-semibold'
 						href='/listings'>
 						View more <FaAngleRight />
 					</Link>
@@ -297,31 +299,31 @@ export default function Home({
 					</h2>
 					<div className='flex flex-wrap p-4 gap-x-6 gap-y-8 m-auto justify-center'>
 						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<img
+							<Image
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
 								src='/images/residual_solar_panel_mounting.jpg'
-								alt=''
+								alt='People mounting solar panels on a house'
 							/>
 							<div>
 								<h3 className='font-semibold'>Solar Panels</h3>
 								<p>
 									We specialize in customizing solar solutions for homes,
 									providing cost effective and eco-friendly energy options for
-									families. Businesses can also benefit from solar power too! <Link className='text-blue-500' href='/listings'>Discover</Link> how we
+									families. Businesses can also benefit from solar power too! <Link className='text-blue-700' href='/listings'>Discover</Link> how we
 									can help you reduce operational costs and enhance
 									sustainability through our commercial solar panels.
 								</p>
 							</div>
 						</div>
 						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<img
+							<Image
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
 								src='/images/mounting_and_maintenance.jpg'
-								alt=''
+								alt='A house fiited wih solar panels'
 							/>
 							<div>
 								<h3 className='font-semibold'>Installation and Maintenance</h3>
@@ -333,29 +335,29 @@ export default function Home({
 							</div>
 						</div>
 						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<img
+							<Image
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
 								src='/images/real_estate.jpg'
-								alt=''
+								alt='Many houses in an estate'
 							/>
 							<div>
 								<h3 className='font-semibold'>Real Estate</h3>
 								<p>
 									We can help you find your dream house. Our real estate agents
 									are experts in providing real estate solutions for our
-									customers. You can <Link className='text-blue-500' href='/contact'>contact us</Link> directly for further enquiry
+									customers. You can <Link className='text-blue-700' href='/contact'>contact us</Link> directly for further enquiry
 								</p>
 							</div>
 						</div>
 						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<img
+							<Image
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
 								src='/images/phones.jpg'
-								alt=''
+								alt='Phones on display'
 							/>
 							<div>
 								<h3 className='font-semibold'>Phones and Mobile Accessories</h3>
@@ -366,33 +368,33 @@ export default function Home({
 							</div>
 						</div>
 						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<img
+							<Image
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
 								src='/images/laptops.jpg'
-								alt=''
+								alt='Laptops on display'
 							/>
 							<div>
 								<h3 className='font-semibold'>Quality Laptops</h3>
 								<p>
-									Check out our <Link className='text-blue-500' href='/listings'>listings page</Link> to find quality laptops that suite your
+									Check out our <Link className='text-blue-700' href='/listings'>listings page</Link> to find quality laptops that suite your
 									work requirements at affordable rates.
 								</p>
 							</div>
 						</div>
 						<div className='bg-blue-50 rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<img
+							<Image
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
 								src='https://www-konga-com-res.cloudinary.com/w_850,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/T/Z/200674_1664086461.jpg'
-								alt=''
+								alt='Beautiful chandelier'
 							/>
 							<div>
 								<h3 className='font-semibold'>Home Lights</h3>
 								<p>
-									We offer top-notch lighting for home interior decorations. You can visit our <Link className='text-blue-500' href='/listings'>listings page</Link> to see the ones that suit your taste.
+									We offer top-notch lighting for home interior decorations. You can visit our <Link className='text-blue-700' href='/listings'>listings page</Link> to see the ones that suit your taste.
 								</p>
 							</div>
 						</div>
@@ -407,12 +409,12 @@ export default function Home({
 					</h2>
 					<div className='flex flex-wrap p-4 gap-x-6 gap-y-8 m-auto justify-center'>
 						<div className='bg-white rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<img
+							<Image
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
 								src='/images/experienced.avif'
-								alt=''
+								alt='A man wearing a helmet and showing a thumbs up'
 							/>
 							<div>
 								<h3 className='font-semibold'>Experience</h3>
@@ -423,12 +425,12 @@ export default function Home({
 							</div>
 						</div>
 						<div className='bg-white rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<img
+							<Image
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
 								src='/images/quality.avif'
-								alt=''
+								alt='A stamp showing quality'
 							/>
 							<div>
 								<h3 className='font-semibold'>Quality Products</h3>
@@ -439,12 +441,12 @@ export default function Home({
 							</div>
 						</div>
 						<div className='bg-white rounded-md shadow-md hover:shadow-lg flex flex-col gap-4 w-full max-w-sm overflow-hidden text-center p-4'>
-							<img
+							<Image
 								height={400}
 								width={400}
 								className='w-full rounded-md aspect-video object-cover block align-middle m-auto'
 								src='/images/customer_support.avif'
-								alt=''
+								alt='Customer care officer smiling'
 							/>
 							<div>
 								<h3 className='font-semibold'>Customer Support</h3>

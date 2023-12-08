@@ -73,15 +73,20 @@ export type product = {
 };
 
 export type order = {
+	_id: string;
 	customerContact: [string, string, string];
 	products: cartItem[];
 	dateCreated: Date | string | number;
 	totalItems: number;
 	totalUniqueItems: number;
+	completed: 'yes' | 'no';
 };
 
 export type message = {
+	_id: string;
 	name: string;
 	email: string;
 	phoneNumber: string;
+	message: string;
+	replied: 'yes' | 'no';
 };

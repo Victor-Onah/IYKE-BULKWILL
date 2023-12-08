@@ -47,7 +47,7 @@ export default function Cart({ appAuthToken }: InferGetStaticPropsType<typeof ge
 		let inputs = document.querySelectorAll('.form-input') as NodeListOf<HTMLInputElement>,
 			form = {
 				customerContact: [] as unknown as [name: string, email: string, phoneNumber: string],
-				products: [] as cartItem[],
+				products: [...state.cart] as cartItem[],
 				dateCreated: new Date().getTime(),
 				totalItems: 0,
 				totalUniqueItems: state.cart.length
@@ -97,7 +97,7 @@ export default function Cart({ appAuthToken }: InferGetStaticPropsType<typeof ge
 			{
 				state.cart.length === 0 ? <div>
 					<h3 className='text-center font-semibold text-lg text-gray-600 mt-2'>No items in cart</h3>
-					<Link className='text-blue-500 text-center w-fit block my-2 mx-auto' href='/listings'>Go to Listings</Link>
+					<Link className='text-blue-700 text-center w-fit block my-2 mx-auto' href='/listings'>Go to Listings</Link>
 				</div> : state.cart.map(product => <div className='flex gap-2 mb-4 hover:shadow-lg items-start rounded-lg p-2' key={product._id}>
 					<img className='max-w-[100px] object-cover flex justify-center items-center aspect-square rounded' src={product.imageUrl} height={100} width={100} alt={product.name} />
 					<div className='flex-grow'>
@@ -120,7 +120,7 @@ export default function Cart({ appAuthToken }: InferGetStaticPropsType<typeof ge
 			}
 		</div>
 		{state.cart.length > 0 ? <div>
-			<button onClick={() => setCheckout(true)} className='bg-blue-500 text-white px-4 py-2 rounded-md w-full max-w-[400px] m-auto block mb-4 hover:scale-105 active:scale-95'>Place order</button>
+			<button onClick={() => setCheckout(true)} className='bg-blue-700 text-white px-4 py-2 rounded-md w-full max-w-[400px] m-auto block mb-4 hover:scale-105 active:scale-95'>Place order</button>
 			<button
 				onClick={() => {
 					if (confirm('You\'re about to clear your cart. Do you wish to continue?')) {
@@ -140,7 +140,7 @@ export default function Cart({ appAuthToken }: InferGetStaticPropsType<typeof ge
 						<input className='form-input border-2 border-black rounded px-4 py-2' name='name' placeholder='Name' type="text" />
 						<input className='form-input border-2 border-black rounded px-4 py-2' name='email' type="email" placeholder='Email' />
 						<input className='form-input border-2 border-black rounded px-4 py-2' name='phone-number' placeholder='Phone number' type="tel" />
-						<button id='submit-btn' className='bg-blue-500 text-white px-4 py-2 rounded-md w-full max-w-[400px] m-auto block mb-4 hover:scale-105 active:scale-95 disabled:opacity-75'>Complete your order</button>
+						<button id='submit-btn' className='bg-blue-700 text-white px-4 py-2 rounded-md w-full max-w-[400px] m-auto block mb-4 hover:scale-105 active:scale-95 disabled:opacity-75'>Complete your order</button>
 					</form>
 				</div>
 			</div>

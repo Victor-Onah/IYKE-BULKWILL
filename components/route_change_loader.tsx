@@ -44,7 +44,7 @@ export default function RouteChangeLoader() {
 		<div className='fixed top-0 left-0 h-1 w-full z-[100000]'>
 			<div
 				id='loading-bar'
-				className='h-full w-0 bg-blue-500 transition-all'></div>
+				className='h-full w-0 bg-blue-700 transition-all'></div>
 		</div>
 	);
 }

@@ -4,7 +4,7 @@ import React from 'react';
 export default function Footer() {
 	return (
 		<footer
-			className='bg-blue-500 text-white px-4
+			className='bg-blue-700 text-white px-4
 			py-8'
 			style={{
 				fontSize: '14px',

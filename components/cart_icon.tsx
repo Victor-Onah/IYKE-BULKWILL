@@ -16,7 +16,7 @@ export default function CartIcon() {
 		localStorage.setItem('cart', JSON.stringify(state.cart))
 	}, [state.cart])
 	return state.cart.length > 0 ? <Link
-		href='/listings/cart' className='fixed top-1/2 hover:scale-105 right-4 bg-blue-500 text-white w-14 h-14 flex justify-center items-center rounded-full shadow-lg gap-1'>
+		href='/listings/cart' className='fixed top-1/2 hover:scale-105 right-4 bg-blue-700 text-white w-14 h-14 flex justify-center items-center rounded-full shadow-lg gap-1'>
 		<FaCartPlus /> {state.cart.length}
 	</Link> : ''
 }

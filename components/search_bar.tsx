@@ -67,7 +67,7 @@ export default function SearchBar({
 							searchInput.blur()
 						}
 					}
-					className='bg-blue-500 text-white rounded whitespace-nowrap px-4 py-2 flex justify-center items-center gap-2'>
+					className='bg-blue-700 text-white rounded whitespace-nowrap px-4 py-2 flex justify-center items-center gap-2'>
 					<FaMagnifyingGlass />
 				</button>
 			</form>

@@ -7,9 +7,38 @@ export default function Home() {
 		<>
 			<Head>
 				<title>
-					Iyke Bulkwill - Dealer on Solar and CCTV, Installations, Real Estate
-					Agent, Sales of Phones and Laptops, General Merchants
+					About Us - Iyke BulkWill: Pioneers in Green Technology
 				</title>
+				<meta
+					name='description'
+					content="Learn about our commitment to providing innovative solar solutions, cutting-edge electronics, and sustainable real estate options. Discover the Iyke BulkWill difference."
+				/>
+				<meta
+					name='og:title'
+					content="About Us - Iyke BulkWill: Pioneers in Green Technology"
+				/>
+				<meta
+					name='og:description'
+					content="Learn about our commitment to providing innovative solar solutions, cutting-edge electronics, and sustainable real estate options. Discover the Iyke BulkWill difference."
+				/>
+				<meta
+					name='og:image'
+					content='https://iyke-bulkwill.onrender.com/images/og_image.jpg'
+				/>
+				<meta
+					name='twitter:card'
+					content='summary_large_image'
+				/>
+				<meta
+					name='twitter:title'
+					content='About Us - Iyke BulkWill: Pioneers in Green Technology'
+				/>
+				<meta
+					name='twitter:description'
+					content="Learn about our commitment to providing innovative solar solutions, cutting-edge electronics, and sustainable real estate options. Discover the Iyke BulkWill difference."
+				/>
+				<link rel="canonical" href="https://iyke-bulkwill.onrender.com/about" />
+				<link rel="canonical" href="https://www.iyke-bulkwill.com/about" />
 			</Head>
 			<main id='about'>
 				{/* Legend */}

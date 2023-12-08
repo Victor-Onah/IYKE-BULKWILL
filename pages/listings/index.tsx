@@ -141,7 +141,6 @@ export default function Listings({
 
 	return (
 		<div>
-			<div className='mb-6'></div>
 			<div
 				className={`${state.productFetchStatus === 'success' && 'grid'
 					} grid-cols-4 gap-y-2 gap-x-4 max-[750px]:grid-cols-3 max-[500px]:grid-cols-2 max-[250px]:grid-cols-1`}>
@@ -170,7 +169,7 @@ export default function Listings({
 								<button
 									onClick={addToCart}
 									data-id={product._id}
-									className='flex-grow flex items-center justify-center gap-1 text-sm px-2 py-1 rounded bg-blue-500 w-full text-white font-semibold active:scale-95'>
+									className='flex-grow flex items-center justify-center gap-1 text-sm px-2 py-1 rounded bg-blue-700 w-full text-white font-semibold active:scale-95'>
 									<FaCartPlus /> Add to cart
 								</button>
 							</div>
@@ -190,20 +189,21 @@ Listings.getLayout = function (page: React.ReactNode) {
 		<>
 			<Head>
 				<title>
-					Exclusive Offers and Affordable Prices | Products Listings - Iyke
-					Bulkwill
+					Find Your Perfect Property - Iyke BulkWill Listings
 				</title>
 				<meta
 					name='description'
-					content='Check out our listings to see our exclusive offers'
+					content='Explore a diverse range of real estate listings at Iyke BulkWill. Discover affordable housing, investment opportunities, and dream properties. Start your journey to finding the perfect home today.
+'
 				/>
 				<meta
 					name='og:title'
-					content='IYKE_BULKWILL - Product Listings'
+					content='Find Your Perfect Property - Iyke BulkWill Listings'
 				/>
 				<meta
 					name='og:description'
-					content='Check out our listings to see our exclusive offers'
+					content='Explore a diverse range of real estate listings at Iyke BulkWill. Discover affordable housing, investment opportunities, and dream properties. Start your journey to finding the perfect home today.
+'
 				/>
 				<meta
 					name='og:image'
@@ -215,16 +215,19 @@ Listings.getLayout = function (page: React.ReactNode) {
 				/>
 				<meta
 					name='twitter:title'
-					content='Product Listings | IYKE-BULKWILL'
+					content='Find Your Perfect Property - Iyke BulkWill Listings'
 				/>
 				<meta
 					name='twitter:description'
-					content='Check out our listings to see our exclusive offers'
+					content='Explore a diverse range of real estate listings at Iyke BulkWill. Discover affordable housing, investment opportunities, and dream properties. Start your journey to finding the perfect home today.
+'
 				/>
 				<meta
 					name='twitter:image'
 					content='https://iyke-bulkwill.com/images/og_image.png'
 				/>
+				<link rel="canonical" href="https://www.iyke-bulkwill.com/listings" />
+				<link rel="canonical" href="https://iyke-bulkwill.onrender.com/listings" />
 			</Head>
 			<ListingsLayout>
 				{page}
