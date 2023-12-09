@@ -185,7 +185,7 @@ export default function Home({
 			 */
 			carousel.removeEventListener('mouseup', clearEvents);
 			carousel.removeEventListener('mousedown', grabCarousel);
-			carousel.removeEventListener('touchstart', touchGrabCarousel);
+			carousel.removeEventListener('touchstart', touchGrabCarousel,);
 			carousel.removeEventListener('touchend', clearTouchEvents,);
 			carousel.removeEventListener('mouseenter', pauseAutoPlay);
 			carousel.removeEventListener('mouseleave', resumeAutoPlay);
@@ -201,7 +201,6 @@ export default function Home({
 					Welcome to Iyke BulkWill Int'l Ltd. - Your Source for Sustainable Living.
 				</title>
 				<link rel="canonical" href="https://iyke-bulkwill.onrender.com/" />
-				<link rel="canonical" href="https://www.iyke-bulkwill.com/" />
 			</Head>
 			<main id='home'>
 				{/* Legend */}
