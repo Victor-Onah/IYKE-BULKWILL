@@ -27,7 +27,7 @@ export default function Header() {
 			id='header'
 			className='fixed top-0 w-full left-0 bg-transparent flex justify-between p-4 items-center md:pr-16 z-50'>
 			<Logo />
-			<nav role='Primary Navigation'>
+			<nav>
 				<div
 					onClick={() => setIsMenuOpen(!isMenuOpen)}
 					aria-hidden='true'

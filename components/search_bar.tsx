@@ -67,6 +67,7 @@ export default function SearchBar({
 							searchInput.blur()
 						}
 					}
+					aria-label='Search button'
 					className='bg-blue-700 text-white rounded whitespace-nowrap px-4 py-2 flex justify-center items-center gap-2'>
 					<FaMagnifyingGlass />
 				</button>

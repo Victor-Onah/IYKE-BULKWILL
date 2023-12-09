@@ -71,7 +71,11 @@ export default function AdminDashboard({ authToken, apiAuthToken }: InferGetStat
 				}
 			})
 			response = await response.json()
-			if (!response.success) return alert('Failed to complete request.')
+			if (!response.success) {
+				submitBtn.removeAttribute('disabled')
+				submitBtn.textContent = 'Finish'
+				return alert('Failed to complete request.')
+			}
 			alert('Product upload was successful!')
 			setAction(undefined)
 			setRequestingAction(false)
@@ -367,7 +371,12 @@ export default function AdminDashboard({ authToken, apiAuthToken }: InferGetStat
 						backdropFilter: 'blur(15px)'
 					}}>
 						<div className='relative min-h-[250px] max-h-full w-full max-w-[600px] bg-white will-change overflow-hidden'>
-							<span onClick={() => { setRequestingAction(false); setProductsToDelete([]); setAction(undefined) }} className='absolute top-2 right-2 w-8 h-8 flex justify-center items-center rounded-full bg-slate-200 active:bg-slate-400 shadow-lg'>
+							<span onClick={() => {
+								setRequestingAction(false);
+								setProductsToDelete([]);
+								setAction(undefined)
+								setImageName(null)
+							}} className='absolute top-2 right-2 w-8 h-8 flex justify-center items-center rounded-full bg-slate-200 active:bg-slate-400 shadow-lg'>
 								<FaX />
 							</span>
 							{
@@ -387,6 +396,7 @@ export default function AdminDashboard({ authToken, apiAuthToken }: InferGetStat
 												<option value="phones">Phones</option>
 												<option value="laptops">Laptops</option>
 												<option value="home lights">Home Lights</option>
+												<option value="real estate">Real Estate</option>
 											</select>
 										</div>
 										<div onClick={(e) => {

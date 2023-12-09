@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { FaTrash, FaX } from 'react-icons/fa6';
 import { cartItem } from '../../components/types';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import Image from 'next/image';
 
 export const getStaticProps = function () {
 	return {
@@ -99,7 +100,7 @@ export default function Cart({ appAuthToken }: InferGetStaticPropsType<typeof ge
 					<h3 className='text-center font-semibold text-lg text-gray-600 mt-2'>No items in cart</h3>
 					<Link className='text-blue-700 text-center w-fit block my-2 mx-auto' href='/listings'>Go to Listings</Link>
 				</div> : state.cart.map(product => <div className='flex gap-2 mb-4 hover:shadow-lg items-start rounded-lg p-2' key={product._id}>
-					<img className='max-w-[100px] object-cover flex justify-center items-center aspect-square rounded' src={product.imageUrl} height={100} width={100} alt={product.name} />
+					<Image className='max-w-[100px] object-cover flex justify-center items-center aspect-square rounded' src={product.imageUrl} height={100} width={100} alt={product.name} />
 					<div className='flex-grow'>
 						<p className='font-semibold capitalize'>{product.name}</p>
 						<div className='flex gap-1 my-2 w-full max-w-[300px]'>

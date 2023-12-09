@@ -1,5 +1,6 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 import React, { FormEventHandler } from 'react'
 import { FaPhone, FaWhatsapp, FaFacebook, FaEnvelope } from 'react-icons/fa6'
 
@@ -94,7 +95,6 @@ export default function Contact({ appAuthToken }: InferGetStaticPropsType<typeof
 				content="Have questions about our products or services? Contact Iyke BulkWill for prompt assistance. We're here to help you with solar solutions, electronic gadgets, and real estate queries."
 			/>
 			<link rel="canonical" href="https://iyke-bulkwill.onrender.com/contact" />
-			<link rel="canonical" href="https://www.iyke-bulkwill.com/contact" />
 		</Head>
 		<main id='contact'>
 			{/* Legend */}
@@ -104,10 +104,11 @@ export default function Contact({ appAuthToken }: InferGetStaticPropsType<typeof
 				<h1
 					style={{ fontFamily: 'Playfair Display' }}
 					className='text-6xl font-bold capitalize max-md:text-4xl flex justify-center flex-wrap gap-2'>
-					<img
+					<Image
 						src='/images/logo.png'
 						height={70}
 						width={70}
+						alt='Logo'
 					/>{' '}
 					Iyke-Bulkwill Intl. Ltd.
 				</h1>
@@ -152,9 +153,9 @@ export default function Contact({ appAuthToken }: InferGetStaticPropsType<typeof
 					<div className='flex-grow w-full'>
 						<h3 className="font-semibold text-gray-600 text-lg text-center mb-3">Fill Our Contact Form</h3>
 						<form onSubmit={postMessage as unknown as FormEventHandler<HTMLFormElement>} className='w-full my-8 flex flex-col gap-2 max-w-[400px] mx-auto shadow-lg bg-white p-4'>
-							<input className='border-2 border-black rounded px-4 py-2' name='name' placeholder='Name' type="text" />
-							<input className='border-2 border-black rounded px-4 py-2' name='email' type="email" placeholder='Email' />
-							<input className='border-2 border-black rounded px-4 py-2' name='phone-number' placeholder='Phone number' type="tel" />
+							<input className='border-2 border-black rounded px-4 py-2' name='name' placeholder='Name' autoComplete='true' type="text" />
+							<input className='border-2 border-black rounded px-4 py-2' name='email' type="email" autoComplete='true' placeholder='Email' />
+							<input className='border-2 border-black rounded px-4 py-2' name='phone-number' autoComplete='true' placeholder='Phone number' type="tel" />
 							<textarea placeholder='Write your message here' className='border-2 border-black rounded px-4 py-2' cols={30} rows={10}></textarea>
 							<button id='submit-btn' className='bg-blue-700 text-white px-4 py-2 rounded-md w-full max-w-[400px] m-auto block mb-4 active:scale-95 disabled:opacity-70'>Submit</button>
 						</form>

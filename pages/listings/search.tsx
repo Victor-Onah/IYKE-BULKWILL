@@ -7,6 +7,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/router';
 import CartIcon from '../../components/cart_icon';
 import { product } from '../../components/types';
+import Image from 'next/image';
 
 export const getStaticProps = (() => {
 	return {
@@ -105,12 +106,11 @@ export default function Search({
 								key={product._id}
 								data-id={product._id}
 								className='hover:shadow-lg p-2 h-fit'>
-								<img
+								<Image
 									alt={product.name}
 									src={product.imageUrl}
 									height={150}
 									width={150}
-									loading='lazy'
 									className='block aspect-square align-center object-cover w-full'
 								/>
 								<p className='font-semibold text-sm'>{product.name}</p>

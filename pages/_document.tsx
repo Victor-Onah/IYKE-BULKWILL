@@ -41,10 +41,6 @@ export default function Document() {
 				/>
 				<meta name='robots' content='index, follow' />
 				<link
-					rel='stylesheet'
-					href='/styles/fonts.css'
-				/>
-				<link
 					rel='shortcut icon'
 					href='/images/logo.png'
 					type='image/png'

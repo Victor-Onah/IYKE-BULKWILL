@@ -7,6 +7,7 @@ import { FaCartPlus, FaSpinner } from 'react-icons/fa6';
 import Link from 'next/link';
 import CartIcon from '../../components/cart_icon';
 import { product } from '../../components/types';
+import Image from 'next/image';
 
 export const getStaticProps = (() => {
 	return {
@@ -156,7 +157,7 @@ export default function Listings({
 							key={product._id}
 							data-id={product._id}
 							className='hover:shadow-lg p-2 h-fit'>
-							<img
+							<Image
 								alt={product.name}
 								src={product.imageUrl}
 								height={150}
@@ -226,7 +227,6 @@ Listings.getLayout = function (page: React.ReactNode) {
 					name='twitter:image'
 					content='https://iyke-bulkwill.com/images/og_image.png'
 				/>
-				<link rel="canonical" href="https://www.iyke-bulkwill.com/listings" />
 				<link rel="canonical" href="https://iyke-bulkwill.onrender.com/listings" />
 			</Head>
 			<ListingsLayout>

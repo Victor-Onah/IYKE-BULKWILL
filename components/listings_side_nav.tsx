@@ -6,7 +6,7 @@ export default function ListingsSideNav() {
 	let { state, dispatch } = useContext(ShopContext)
 
 	function changeCategory(e: MouseEvent) {
-		let { category } = e.target.dataset, categoryBtns = document.querySelectorAll('.category-btn')
+		let { category } = e.target?.dataset, categoryBtns = document.querySelectorAll('.category-btn')
 		dispatch({ type: 'set_current_category', payload: category })
 		categoryBtns.forEach((btn) => btn.classList.remove('bg-blue-700', 'text-white'))
 		e.target.classList.add('bg-blue-700', 'text-white')
@@ -16,7 +16,7 @@ export default function ListingsSideNav() {
 			<div></div>
 			<section className='mt-8'>
 				<h2 className='font-bold text-lg text-slate-700'>Categories</h2>
-				<ul className='mt-2 flex flex-wrap lg:flex-col justify-start items-start gap-2 overflow-auto'>
+				<div className='mt-2 flex flex-wrap lg:flex-col justify-start items-start gap-2 overflow-auto'>
 					<button onClick={changeCategory as unknown as MouseEventHandler} data-category='all' className='px-2 text-[12px] py-1 whitespace-nowrap block text-center text-sm font-semibold bg-blue-700 text-white rounded-full border-2 border-blue-700 category-btn'>
 						All
 					</button>
@@ -38,7 +38,10 @@ export default function ListingsSideNav() {
 					<button onClick={changeCategory as unknown as MouseEventHandler} data-category='home lights' className='px-2 text-[12px] py-1 whitespace-nowrap block text-center text-sm font-semibold rounded-full border-2 border-blue-700 category-btn'>
 						Home Lights
 					</button>
-				</ul>
+					<button onClick={changeCategory as unknown as MouseEventHandler} data-category='real estate' className='px-2 text-[12px] py-1 whitespace-nowrap block text-center text-sm font-semibold rounded-full border-2 border-blue-700 category-btn'>
+						Real Estate
+					</button>
+				</div>
 			</section>
 		</aside>
 	);

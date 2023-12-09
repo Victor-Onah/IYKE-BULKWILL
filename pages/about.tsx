@@ -1,6 +1,7 @@
 import { FaPhone, FaWhatsapp } from 'react-icons/fa6';
 import React from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 
 export default function Home() {
 	return (
@@ -38,7 +39,6 @@ export default function Home() {
 					content="Learn about our commitment to providing innovative solar solutions, cutting-edge electronics, and sustainable real estate options. Discover the Iyke BulkWill difference."
 				/>
 				<link rel="canonical" href="https://iyke-bulkwill.onrender.com/about" />
-				<link rel="canonical" href="https://www.iyke-bulkwill.com/about" />
 			</Head>
 			<main id='about'>
 				{/* Legend */}
@@ -48,10 +48,11 @@ export default function Home() {
 					<h1
 						style={{ fontFamily: 'Playfair Display' }}
 						className='text-6xl font-bold capitalize max-md:text-4xl flex justify-center flex-wrap gap-2'>
-						<img
+						<Image
 							src='/images/logo.png'
 							height={70}
 							width={70}
+							alt='Logo'
 						/>{' '}
 						Iyke-Bulkwill Intl. Ltd.
 					</h1>
